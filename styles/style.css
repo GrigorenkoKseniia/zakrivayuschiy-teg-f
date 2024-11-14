@@ -194,11 +194,11 @@ button {
 }
 
 .filter__3 {
-  filter:  hue-rotate(25deg) saturate(110%) brightness(80%);
+  filter: hue-rotate(25deg) saturate(110%) brightness(80%);
 }
 
 .filter__4 {
-  filter:  invert(80%);
+  filter: invert(80%);
 }
 
 .filter__5 {
@@ -210,7 +210,7 @@ button {
 }
 
 .filter__7 {
-  filter:  hue-rotate(100deg) blur(1px) opacity(0.7);
+  filter: hue-rotate(100deg) blur(1px) opacity(0.7);
 }
 
 @supports ((text-stroke: 1px var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))) {
@@ -253,7 +253,7 @@ button {
   position: absolute;
   background-color: var(--text-color);
   block-size: 100%;
-  inline-size:100%;
+  inline-size: 100%;
   inset: 0;
   transition: transform 0.5s ease-in-out;
   transform: scaleX(0);
@@ -266,7 +266,7 @@ button {
 
 .card__like-button {
   inline-size: 130px;
-  block-size: 38px; 
+  block-size: 38px;
 }
 
 .button__text {
@@ -338,12 +338,13 @@ button {
   text-transform: uppercase;
 }
 
-@media (width <= 375px) {
+@media (width <=375px) {
 
   .dialog {
     max-inline-size: 341px;
     padding: 30px 41px;
   }
+
   .button__save {
     flex-direction: column;
   }
