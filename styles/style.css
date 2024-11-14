@@ -17,4 +17,343 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  background-color: var(--bg-color, #ffffff);
+  color: var(--text-color, #000000);
+  font-family: var(--main-font), sans-serif;
+  font-variation-settings: "wght" var(--main-weight, 400);
+  background-image: var(--bg-img);
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+.content__section {
+  max-inline-size: 700px;
+  margin-inline: auto;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--accent-font, sans-serif);
+  text-transform: uppercase;
+  background-color: var(--bg-color, #ffffff);
+  margin-block: 100px;
+  padding-block-end: 25px;
+  padding-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  border: 2px solid currentColor;
+  line-height: 1;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.header__content {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+}
+
+.header__paragraph {
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  text-align: center;
+}
+
+.theme-menu__list {
+  display: grid;
+  gap: 14px;
+  padding-inline-start: 18px;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.theme-menu__button {
+  text-transform: uppercase;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+.theme-menu__button::after {
+  content: '';
+  position: absolute;
+  display: block;
+  background-color: currentColor;
+  block-size: 2px;
+  inline-size: 0;
+  transition: inline-size 0.3s ease;
+}
+
+.theme-menu__button:focus-visible {
+  opacity: 0.6;
+}
+
+.theme-menu__button:focus-visible::after {
+  inline-size: 100%;
+}
+
+.theme-menu__button:disabled {
+  opacity: 0.6;
+  cursor: default;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: '▶';
+  position: absolute;
+  left: -20px;
+  animation: arrow 0.5s ease-in-out infinite alternate;
+}
+
+.theme-menu__button:hover {
+  opacity: 0.6;
+}
+
+/* main */
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-items: center;
+  margin-block-end: 100px;
+}
+
+.card__list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.21;
+  font-size: 18px;
+  gap: 50px;
+}
+
+.card__item {
+  background-color: var(--bg-color, #ffffff);
+  border: 2px solid currentColor;
+}
+
+.card__title {
+  font-size: 18px;
+  font-variation-settings: "wght" var(--title-weight, 700);
+  padding: 5px 10px 4px;
+  border-bottom: 2px solid currentColor;
+}
+
+.card__item-content {
+  padding: 25px 25px 23px;
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  line-height: 1.17;
+  border-top: 2px solid currentColor;
+}
+
+.content__image {
+  position: relative;
+}
+
+.card__image {
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  inline-size: 100%;
+}
+
+.card__image-label {
+  position: absolute;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  opacity: 0.5;
+  right: 25px;
+  top: 25px;
+  z-index: 1;
+  text-shadow:
+    -1px 0 var(--bg-color),
+    0 1px var(--bg-color),
+    1px 0 var(--bg-color),
+    0 -1px var(--bg-color);
+  mix-blend-mode: hard-light;
+}
+
+.filter__1 {
+  filter: grayscale(0.8);
+}
+
+.filter__2 {
+  filter: saturate(350%);
+}
+
+.filter__3 {
+  filter:  hue-rotate(25deg) saturate(110%) brightness(80%);
+}
+
+.filter__4 {
+  filter:  invert(80%);
+}
+
+.filter__5 {
+  filter: sepia(85%) grayscale(30%);
+}
+
+.filter__6 {
+  filter: blur(10px);
+}
+
+.filter__7 {
+  filter:  hue-rotate(100deg) blur(1px) opacity(0.7);
+}
+
+@supports ((text-stroke: 1px var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))) {
+  .card__image-label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--bg-color);
+  }
+}
+
+.card__buttons {
+  display: flex;
+  gap: 6px;
+  justify-content: end;
+  align-items: center;
+  padding: 0 25px 24px 0;
+
+}
+
+.card__icon-button {
+  display: block;
+  transition: outline 0.3s ease;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid currentColor;
+}
+
+.buttons {
+  position: relative;
+  border: 2px solid currentColor;
+  transition: box-shadow 0.3s ease;
+}
+
+.buttons:focus-visible {
+  box-shadow: 2px 2px currentColor;
+}
+
+.buttons::before {
+  content: "";
+  position: absolute;
+  background-color: var(--text-color);
+  block-size: 100%;
+  inline-size:100%;
+  inset: 0;
+  transition: transform 0.5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.buttons:hover::before {
+  transform: scaleX(1);
+}
+
+.card__like-button {
+  inline-size: 130px;
+  block-size: 38px; 
+}
+
+.button__text {
+  position: relative;
+  font-family: var(--accent-font, sans-serif);
+  font-size: 14px;
+  line-height: 0.9;
+  font-weight: 400;
+  z-index: 2;
+}
+
+.button__save {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  padding: 15px 19px 15px 21px;
+  background-color: var(--bg-color, #ffffff);
+}
+
+.floppy {
+  inline-size: 21px;
+  aspect-ratio: 1 / 1;
+}
+
+.button__text,
+.floppy {
+  mix-blend-mode: difference;
+  color: var(--color-save);
+}
+
+.dialog {
+  border: 2px solid currentColor;
+  max-inline-size: 353px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-family: var(--accent-font);
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 30px;
+}
+
+.dialog[open] {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.dialog::backdrop {
+  background-color: #000000;
+  opacity: 0.75;
+}
+
+.dialog__content {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.floppy__dialog {
+  inline-size: 39px;
+  block-size: 39px;
+  flex-shrink: 0;
+}
+
+.button__dialog {
+  block-size: 38px;
+  text-transform: uppercase;
+}
+
+@media (width <= 375px) {
+
+  .dialog {
+    max-inline-size: 341px;
+    padding: 30px 41px;
+  }
+  .button__save {
+    flex-direction: column;
+  }
+
+  .floppy {
+    inline-size: 28px;
+  }
+
+  .card__image-label {
+    right: 11px;
+    top: 21px;
+  }
 }
