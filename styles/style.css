@@ -72,10 +72,10 @@
 }
 
 button {
-  cursor: pointer;
-  background-color: transparent;
   border: none;
   padding: 0;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .theme-menu__button {
@@ -87,6 +87,8 @@ button {
 .theme-menu__button::after {
   content: '';
   position: absolute;
+  bottom: -3px;
+  left: 0;
   display: block;
   background-color: currentColor;
   block-size: 2px;
@@ -128,16 +130,12 @@ button {
   margin-block-end: 100px;
 }
 
-.card__list {
+.card {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  line-height: 1.21;
+  justify-content: center;
+  line-height: 122%;
   font-size: 18px;
-  gap: 50px;
-}
-
-.card__item {
   background-color: var(--bg-color, #ffffff);
   border: 2px solid currentColor;
 }
@@ -150,16 +148,17 @@ button {
 }
 
 .card__item-content {
-  padding: 25px 25px 23px;
+  padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 27px;
-  line-height: 1.17;
+  line-height: calc(21 / 18);
   border-top: 2px solid currentColor;
 }
 
 .content__image {
   position: relative;
+  overflow: hidden;
 }
 
 .card__image {
@@ -185,38 +184,39 @@ button {
   mix-blend-mode: hard-light;
 }
 
-.filter__1 {
+.filter__grayscale {
   filter: grayscale(0.8);
 }
 
-.filter__2 {
+.filter__saturate {
   filter: saturate(350%);
 }
 
-.filter__3 {
-  filter: hue-rotate(25deg) saturate(110%) brightness(80%);
+.filter__brightness {
+  filter: brightness(80%) hue-rotate(25deg) saturate(110%);
 }
 
-.filter__4 {
+.filter__invert {
   filter: invert(80%);
 }
 
-.filter__5 {
+.filter__sepia {
   filter: sepia(85%) grayscale(30%);
 }
 
-.filter__6 {
+.filter__blur {
   filter: blur(10px);
 }
 
-.filter__7 {
+.filter__hue-rotate {
   filter: hue-rotate(100deg) blur(1px) opacity(0.7);
 }
 
 @supports ((text-stroke: 1px var(--bg-color)) or (-webkit-text-stroke: 1px var(--bg-color))) {
   .card__image-label {
-    text-shadow: none;
     -webkit-text-stroke: 1px var(--bg-color);
+    text-stroke: 1px var(--bg-color);
+    text-shadow: none;
   }
 }
 
@@ -225,17 +225,22 @@ button {
   gap: 6px;
   justify-content: end;
   align-items: center;
-  padding: 0 25px 24px 0;
+  padding: 0 25px 25px 0;
 
 }
 
 .card__icon-button {
-  display: block;
+  display: flex;
   transition: outline 0.3s ease;
 }
 
 .card__icon-button:focus-visible {
   outline: 2px solid currentColor;
+}
+
+.like-icon {
+  position: relative;
+  top: 2px;
 }
 
 .buttons {
@@ -266,14 +271,15 @@ button {
 
 .card__like-button {
   inline-size: 130px;
-  block-size: 38px;
+  padding: 10px 0 10px;
 }
 
 .button__text {
+  display: block;
   position: relative;
   font-family: var(--accent-font, sans-serif);
   font-size: 14px;
-  line-height: 0.9;
+  line-height: 1;
   font-weight: 400;
   z-index: 2;
 }

@@ -16,24 +16,23 @@
     overflow: visible;
 }
 
-.main-body {
-    fill: var(--bg-color);
-    transition: fill 0.3s linear;
-}
-
 .core {
     fill: var(--bg-color);
     transition: fill 0.3s linear 0.03s;
 }
 
- .contour {
+.main-body {
+    fill: var(--bg-color);
+    transition: fill 0.3s linear;
+}
+
+.contour {
     fill: var(--icon-contur);
     transition: fill 0.1s linear;
 }
 
-.like-icon:hover .main-body {
-    fill: var(--icon-contur);
-    transition: fill 0.3s linear 0.05s;
+.heart {
+    transform-origin: center;
 }
 
 .like-icon:hover .core {
@@ -41,8 +40,8 @@
     transition: fill 0.3s linear;
 }
 
-.like-icon:active .main-body {
-    fill: var(--icon-red);
+.like-icon:hover .main-body {
+    fill: var(--icon-contur);
     transition: fill 0.3s linear 0.05s;
 }
 
@@ -51,6 +50,10 @@
     transition: fill 0.3s linear;
 }
 
+.like-icon:active .main-body {
+    fill: var(--icon-red);
+    transition: fill 0.3s linear 0.05s;
+}
 
 .like-icon.is-liked .core {
     fill: var(--icon-red);
@@ -68,21 +71,24 @@
 }
 
 .like-icon.is-liked .heart {
-    animation: heart 0.3s ease-in 0.1s  alternate;
+    animation: heart 0.3s ease-in 0.1s alternate;
 }
 
 .sparks {
     opacity: 0;
-  }
+}
 
 .like-icon.is-liked .sparks {
-    animation: sparks 0.3s ease-in 0.3s  alternate;
+    animation: sparks 0.3s ease-in 0.3s alternate;
 }
 
 @keyframes heart {
+    0% {
+        transform: scale(1);
+    }
+
     100% {
-        transform:scale(1.5);
-        transform-origin: center;
+        transform: scale(1.5);
     }
 }
 
@@ -90,6 +96,7 @@
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -97,10 +104,10 @@
 
 @keyframes arrow {
     0% {
-      left: -20px;
+        left: -20px;
     }
-  
+
     100% {
-      left: -16px;
+        left: -16px;
     }
-  }
+}
